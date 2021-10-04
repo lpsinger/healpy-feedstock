@@ -26,6 +26,7 @@ requirements:
     - openssl
     - libopenssl-static
     - libtool  # [unix]
+    - make  # [unix]
     - {{ compiler('fortran') }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
