@@ -1,0 +1,19 @@
+diff --git a/setup.py b/setup.py
+index b354825..ac07222 100755
+--- a/setup.py
++++ b/setup.py
+@@ -45,6 +45,14 @@ if (
+         get_config_var("MACOSX_DEPLOYMENT_TARGET")
+     )
+ 
++# When cross-compiling on aarch64, distutils ends up trying to pass a `-R` flag
++# to the C++ compiler because it fails to identify it as a GCC variant
++# (`distutils.unixccompiler.UnixCCompiler.runtime_library_dir_option`) The GCC
++# test is done by examining the value of `sysconfig.get_config_var('CC')`, and
++# there's no straightforward way to affect that value, so here we just force the
++# issue.
++import distutils.unixccompiler
++distutils.unixccompiler.UnixCCompiler.runtime_library_dir_option = lambda s, d: '-Wl,-R' + d
+ 
+ class build_external_clib(build_clib):
+     """Subclass of Distutils' standard build_clib subcommand. Adds support for
