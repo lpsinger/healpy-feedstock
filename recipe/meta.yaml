@@ -11,9 +11,10 @@ source:
   sha256: {{ sha256 }}
   patches:
     - macos-c++-linking.patch    # [osx]
+    - cross-rpath-flag-workaround.patch  # [aarch64]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
