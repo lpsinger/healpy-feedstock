@@ -1,9 +1,9 @@
 --- healpixsubmodule/src/cxx/cxxsupport/fitshandle.cc.orig	2021-12-02 08:05:04.000000000 -0800
-+++ healpixsubmodule/src/cxx/cxxsupport/fitshandle.cc	2021-12-02 08:08:32.000000000 -0800
-@@ -801,10 +801,25 @@
++++ healpixsubmodule/src/cxx/cxxsupport/fitshandle.cc	2021-12-02 08:23:44.000000000 -0800
+@@ -799,12 +799,27 @@
+       float fitsversion;
+       planck_assert(fits_get_version(&fitsversion),
          "error calling fits_get_version()");
-       int v_header  = nearest<int>(1000.*CFITSIO_VERSION),
-           v_library = nearest<int>(1000.*fitsversion);
 +      /* CFITSIO 4.x switched to a three version format (4.0.0), as opposed
 +       * to previous two-number versions (3.47). Version 4 defines a new macro
 +       * CFITSIO_MICRO to track the patch level in the version. We check if
@@ -18,6 +18,8 @@
 +             << dataToString(v_header*1.0E-6) << ") and linked library (v"
 +             << dataToString(v_library*1.0E-6) << ")." << endl << endl;
 +#else
+       int v_header  = nearest<int>(1000.*CFITSIO_VERSION),
+           v_library = nearest<int>(1000.*fitsversion);
        if (v_header!=v_library)
          cerr << endl << "WARNING: version mismatch between CFITSIO header (v"
               << dataToString(v_header*0.001) << ") and linked library (v"
