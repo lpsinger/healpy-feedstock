@@ -12,9 +12,10 @@ source:
   patches:
     - macos-c++-linking.patch    # [osx]
     - cross-rpath-flag-workaround.patch  # [aarch64]
+    - 340d9f72c-cfitsio-4-0-0-version-support.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
