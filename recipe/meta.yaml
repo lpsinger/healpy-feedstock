@@ -15,7 +15,7 @@ source:
     - 340d9f72c-cfitsio-4-0-0-version-support.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
 
 requirements:
