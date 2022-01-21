@@ -1,6 +1,6 @@
 {% set name = "healpy" %}
-{% set version = "1.15.0" %}
-{% set sha256 = "e09300a9f24e40b07f09ca7a7026d640a0478960b6ca6a5fc85052c0bb4335bf" %}
+{% set version = "1.15.1" %}
+{% set sha256 = "35de2b9e16189d31da34fadf9608d2a59d73ae5301ffdb6b4f99282bad4cb05f" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - 340d9f72c-cfitsio-4-0-0-version-support.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
 
 requirements:
