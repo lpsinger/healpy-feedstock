@@ -14,7 +14,7 @@ source:
     - cross-rpath-flag-workaround.patch  # [aarch64]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -40,6 +40,7 @@ requirements:
     - pip
     - pytest-runner
     - six
+    - zlib
   run:
     - python
     - matplotlib-base
